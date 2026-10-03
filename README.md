@@ -12,11 +12,7 @@ This service, powered by the Model Context Protocol (MCP), automatically generat
 
 井身结构示意图绘制：
 
-![well_structure_plot_sample](https://cqchen.top/PicGO/well_structure_plot_sample.png)
-
-井身结构数据解析：
-
-![well_info_sample](https://cqchen.top/PicGO/well_info_sample.png)
+![well_structure_plot_sample](well_structure_plot.png)
 
 ## 服务地址
 
