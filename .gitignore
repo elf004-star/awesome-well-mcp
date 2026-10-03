@@ -1,0 +1,13 @@
+# 忽略操作系统自动生成的文件
+.DS_Store
+Thumbs.db
+
+# 忽略本地产物
+output/
+*.csv
+
+# 忽略含明文 API Key 的客户端配置，防止误提交
+# 仓库内只发布 .mcp.json.example（密钥走 ${WELLBORE_API_KEY} 环境变量）
+# 若团队需要共享不含密钥的项目级配置，删除下面这一行即可
+.mcp.json
+.codex/config.toml

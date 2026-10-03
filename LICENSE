@@ -1,0 +1,117 @@
+Awesome Well Structure MCP — 非商业许可协议
+Awesome Well Structure MCP — Non-Commercial License
+
+Copyright (c) 2025-2026 awesome_well_mcp team
+
+--------------------------------------------------------------------
+中文版（如中英文版本存在歧义，以中文版为准）
+--------------------------------------------------------------------
+
+## 一、授权范围
+
+在遵守本协议全部条款的前提下，任何人均可免费获得以下授权：
+
+1. **个人学习与研究** —— 出于个人自学、研究、实验、技术评估等目的使用、复制、
+   修改本作品。
+2. **非营利教学与科研** —— 高校、科研院所等机构出于非营利目的，将其用于教学、
+   课程材料、学位论文、学术研究与公开发表的学术成果。
+
+上述使用可包含复制、修改与再分发，但必须保留本版权声明与本许可协议全文，且
+不得用于任何商业目的。
+
+## 二、禁止商业使用
+
+**未经版权持有人事先书面授权，不得将本作品用于任何商业用途。**
+
+商业用途包括但不限于：
+
+- 将其集成进营利性产品、系统或服务，或用于商业项目的交付与实施；
+- 以直接或间接营利为目的，提供基于本作品或其衍生成果的收费服务；
+- 在企业、商业组织的生产经营活动中部署或使用；
+- 以本作品或其衍生成果为标的进行转售、许可、出租或收费分发。
+
+**获得商业授权请联系：1873475824@qq.com**
+
+## 三、关于托管服务
+
+本仓库配套的托管服务（`https://ccqwell.vip.cpolar.cn/mcp`）及其生成的井身结构图
+等成果，同样**仅限本协议第一条所述的非商业用途**。将其用于商业目的，须事先取得
+书面授权。服务所需的 API Key 由版权持有人按账户发放，可随时撤销。
+
+## 四、其他条款
+
+1. **无商标授权** —— 本协议不授予任何商标、商号或标识的使用权。
+2. **无担保** —— 本作品按"现状"提供，不附带任何明示或默示的担保，包括但不限于
+   对适销性、特定用途适用性及不侵权的担保。
+3. **责任限制** —— 在任何情况下，作者或版权持有人均不对因本作品或本作品的使用
+   或其他处置而产生的任何索赔、损害或其他责任负责，无论是在合同诉讼、侵权诉讼
+   还是其他方面。
+4. **协议终止** —— 违反本协议任何条款，授权自动终止。终止后须停止使用并销毁
+   所有副本。
+5. **适用范围与历史版本** —— 本协议适用于本仓库当前版本及此后的所有版本。
+   对于在本协议生效前已按 MIT 许可合法获得的副本，其既有的 MIT 授权不因本协议的
+   发布而撤销；本协议不构成对已授予权利的追溯限制。
+
+--------------------------------------------------------------------
+English version (the Chinese version governs in case of ambiguity)
+--------------------------------------------------------------------
+
+## 1. Grant of Rights
+
+Subject to full compliance with this License, everyone is granted, free of
+charge, the following rights:
+
+1. **Personal study and research** — to use, copy, and modify this work for
+   personal self-study, research, experimentation, and technical evaluation.
+2. **Non-profit teaching and academic research** — for universities and
+   research institutions to use this work for non-profit purposes, including
+   teaching, course materials, theses, academic research, and published
+   academic results.
+
+The above uses may include copying, modification, and redistribution, provided
+that this copyright notice and the full text of this License are retained, and
+that the work is not used for any commercial purpose.
+
+## 2. Prohibition of Commercial Use
+
+**This work may not be used for any commercial purpose without the prior
+written authorization of the copyright holder.**
+
+Commercial purposes include, but are not limited to:
+
+- integrating it into a for-profit product, system, or service, or using it in
+  the delivery or implementation of commercial projects;
+- providing paid services based on this work or its derivatives, whether
+  directly or indirectly for profit;
+- deploying or using it in the production or business operations of an
+  enterprise or commercial organization;
+- reselling, licensing, renting, or distributing it for a fee.
+
+**To obtain a commercial license, contact: 1873475824@qq.com**
+
+## 3. Hosted Service
+
+The hosted service accompanying this repository
+(`https://ccqwell.vip.cpolar.cn/mcp`) and the outputs it generates, such as
+wellbore structure diagrams, are likewise **restricted to the non-commercial
+purposes described in Section 1**. Commercial use requires prior written
+authorization. API keys are issued per account by the copyright holder and may
+be revoked at any time.
+
+## 4. Miscellaneous
+
+1. **No trademark license** — no rights to any trademark, trade name, or logo
+   are granted under this License.
+2. **No warranty** — the work is provided "AS IS", without warranty of any
+   kind, express or implied, including but not limited to the warranties of
+   merchantability, fitness for a particular purpose, and noninfringement.
+3. **Limitation of liability** — in no event shall the authors or copyright
+   holders be liable for any claim, damages, or other liability, whether in an
+   action of contract, tort, or otherwise, arising from, out of, or in
+   connection with the work or the use or other dealings in the work.
+4. **Termination** — any violation of these terms automatically terminates the
+   grant. Upon termination you must cease use and destroy all copies.
+5. **Scope and prior versions** — this License applies to the current version
+   of this repository and all subsequent versions. Copies lawfully obtained
+   under the MIT License before this License took effect remain licensed under
+   MIT; this License does not retroactively restrict rights already granted.
