@@ -11,3 +11,4 @@ output/
 # 若团队需要共享不含密钥的项目级配置，删除下面这一行即可
 .mcp.json
 .codex/config.toml
+well_test_井身结构图.png
