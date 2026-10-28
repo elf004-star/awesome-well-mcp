@@ -47,12 +47,42 @@ This service, powered by the Model Context Protocol (MCP), automatically generat
 
 ## Claude Code 配置
 
-### 推荐：使用 CLI 添加
+### 推荐（macOS / Linux）：密钥存成独立文件，由 shell 读取
+
+不要把明文 Key 直接写进 `~/.zshrc`，也不要在命令行里 `export`——前者会被 dotfile 同步带走，后者会留在 shell 历史里。推荐把密钥单独存成一个只有当前用户可读的文件：
 
 ```bash
-export WELLBORE_API_KEY='粘贴你的 API Key'
-# PowerShell：$env:WELLBORE_API_KEY='粘贴你的 API Key'
+mkdir -p ~/.config/wellbore
+chmod 700 ~/.config/wellbore
+printf '%s' '粘贴你的 API Key' > ~/.config/wellbore/api-key
+chmod 600 ~/.config/wellbore/api-key
 ```
+
+然后在 shell 启动文件末尾追加一行（macOS 默认 zsh 用 `~/.zshrc`，bash 用 `~/.bashrc`）：
+
+```bash
+[ -r "$HOME/.config/wellbore/api-key" ] && export WELLBORE_API_KEY="$(<"$HOME/.config/wellbore/api-key")"
+```
+
+开一个新终端验证变量已就位。只回显长度，不要把密钥本身打印到屏幕或日志里：
+
+```bash
+printf 'len=%s\n' "${#WELLBORE_API_KEY}"
+```
+
+正常应输出一个非零长度（与 `~/.config/wellbore/api-key` 的字符数一致）。`len=0` 说明启动文件那行没生效。
+
+这样做的理由：
+
+- 密钥只存在于一个 `600` 权限的文件里，不进 dotfile、不进 shell 历史。
+- dotfile 常被多机同步或误提交；密钥与 `~/.zshrc` 分离后，同步 dotfile 不会带走它。
+- 轮换密钥只需覆写这一个文件，无需改动客户端配置。
+
+> 从 Dock / Spotlight 启动的桌面应用不会执行 `~/.zshrc`，拿不到这个变量。终端里启动的 `claude` / `codex` CLI 不受影响；桌面客户端请改用固定请求头（见下文「配置文件」一节）。
+
+### 使用 CLI 添加
+
+密钥按上一节的做法放进环境变量后（Windows 可先执行 `$env:WELLBORE_API_KEY='粘贴你的 API Key'` 临时设置），添加服务器：
 
 ```bash
 claude mcp add --transport http --scope user wellbore \
@@ -120,12 +150,15 @@ tool_timeout_sec = 180
 
 ### 更安全：使用环境变量与 CLI
 
+macOS / Linux 上密钥的存放方式与上文「推荐（macOS / Linux）：密钥存成独立文件，由 shell 读取」一致，不要把明文写进 `~/.zshrc`。变量就位后：
+
 ```bash
-export WELLBORE_API_KEY='粘贴你的 API Key'
 codex mcp add wellbore \
   --url https://ccqwell.vip.cpolar.cn/mcp \
   --bearer-token-env-var WELLBORE_API_KEY
 ```
+
+Windows 临时设置：`$env:WELLBORE_API_KEY='粘贴你的 API Key'`。
 
 CLI 将服务器写入用户级 `~/.codex/config.toml`，适用于所有项目。密钥必须存在于启动该 Codex 会话的环境中；macOS 终端里的 `export` 不会自动传给从 Dock 启动的桌面应用。
 
@@ -221,12 +254,15 @@ stratigraphy:
 | **403 / 421** | 服务端 Host 或 Origin 白名单未包含当前公网域名 |
 | **连接正常但等待超时** | Codex 保留 `tool_timeout_sec = 180`；Claude Code 可再次调用等待工具 |
 | **配置后看不到工具** | 确认项目已受信任并新建会话；使用环境变量认证时，还要确认该会话确实继承了密钥 |
+| **终端里正常，桌面客户端 401** | 桌面应用从 Dock 启动时不读取 `~/.zshrc`，环境变量为空；改用固定请求头或按 macOS 的 `launchctl setenv` 注入 |
+| **`WELLBORE_API_KEY` 为空但文件存在** | 检查启动文件那行是否在 `~/.zshrc`（bash 是 `~/.bashrc`）里、新终端是否已重开；`printf '%s\n' "${#WELLBORE_API_KEY}"` 输出 `0` 即可判定 |
 | **显示 `enabled` 但无法调用** | `enabled` 只说明配置没有被禁用，请继续检查新会话中的实际工具列表与连接错误 |
 | **提交返回 422** | YAML 校验未通过，按返回的 `path` / `line` 修正；契约见 `wellbore://yaml/guide` |
 
 ## 保护你的 API Key
 
 - 不要把密钥放进 URL、提交到版本库或发给他人。
+- 密钥存放文件权限设为 `600`（`chmod 600 ~/.config/wellbore/api-key`），目录 `700`；不要用 `echo` 追加到会被同步的 dotfile 里。
 - 每个客户端建议使用独立密钥；停用设备时，到 <https://ccqwell.vip.cpolar.cn/keys> 单独撤销即可。
 - 本仓库的 `.gitignore` 已默认忽略 `.mcp.json` 与 `.codex/config.toml`，避免误提交。
 
