@@ -2,7 +2,7 @@
   "mcpServers": {
     "wellbore": {
       "type": "http",
-      "url": "https://ccqwell.vip.cpolar.cn/mcp",
+      "url": "https://wellbore.ichunqian.top/mcp",
       "headers": {
         "Authorization": "Bearer ${WELLBORE_API_KEY}"
       }

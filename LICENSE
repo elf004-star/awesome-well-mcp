@@ -34,7 +34,7 @@ Copyright (c) 2025-2026 awesome-well-mcp team
 
 ## 三、关于托管服务
 
-本仓库配套的托管服务（`https://ccqwell.vip.cpolar.cn/mcp`）及其生成的井身结构图
+本仓库配套的托管服务（`https://wellbore.ichunqian.top/mcp`）及其生成的井身结构图
 等成果，同样**仅限本协议第一条所述的非商业用途**。将其用于商业目的，须事先取得
 书面授权。服务所需的 API Key 由版权持有人按账户发放，可随时撤销。
 
@@ -92,7 +92,7 @@ Commercial purposes include, but are not limited to:
 ## 3. Hosted Service
 
 The hosted service accompanying this repository
-(`https://ccqwell.vip.cpolar.cn/mcp`) and the outputs it generates, such as
+(`https://wellbore.ichunqian.top/mcp`) and the outputs it generates, such as
 wellbore structure diagrams, are likewise **restricted to the non-commercial
 purposes described in Section 1**. Commercial use requires prior written
 authorization. API keys are issued per account by the copyright holder and may

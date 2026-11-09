@@ -18,19 +18,21 @@ This service, powered by the Model Context Protocol (MCP), automatically generat
 
 | 项 | 值 |
 |---|---|
-| MCP 端点 | `https://ccqwell.vip.cpolar.cn/mcp` |
+| MCP 端点 | `https://wellbore.ichunqian.top/mcp` |
 | 传输方式 | Streamable HTTP |
 | 认证 | Bearer Token（每个请求都必须携带） |
 | 输入契约 | **YAML**（不接受 JSON） |
 | 输出格式 | PNG / SVG |
 
-配置说明的在线版本见 <https://ccqwell.vip.cpolar.cn/mcp-setup>。
+配置说明的在线版本见 <https://wellbore.ichunqian.top/mcp-setup>。
+
+服务地址是这台实例的运行期配置：不确定当前实例自己认为的公网地址时，读公开只读的 <https://wellbore.ichunqian.top/api/config>（返回 `{"publicBaseUrl": "..."}`）核对。换域名时运维只改服务端一行配置，客户端把上面的地址替换成新地址即可。
 
 ## 快速开始
 
 ### 第一步：生成 API Key
 
-登录后前往 <https://ccqwell.vip.cpolar.cn/keys> 生成密钥。
+登录后前往 <https://wellbore.ichunqian.top/keys> 生成密钥。
 
 **明文只显示一次，请立即保存。**
 
@@ -86,7 +88,7 @@ printf 'len=%s\n' "${#WELLBORE_API_KEY}"
 
 ```bash
 claude mcp add --transport http --scope user wellbore \
-  https://ccqwell.vip.cpolar.cn/mcp \
+  https://wellbore.ichunqian.top/mcp \
   --header 'Authorization: Bearer ${WELLBORE_API_KEY}'
 ```
 
@@ -101,7 +103,7 @@ claude mcp add --transport http --scope user wellbore \
   "mcpServers": {
     "wellbore": {
       "type": "http",
-      "url": "https://ccqwell.vip.cpolar.cn/mcp",
+      "url": "https://wellbore.ichunqian.top/mcp",
       "headers": {
         "Authorization": "Bearer ${WELLBORE_API_KEY}"
       }
@@ -139,7 +141,7 @@ claude mcp remove wellbore --scope user
 
 ```toml
 [mcp_servers.wellbore]
-url = "https://ccqwell.vip.cpolar.cn/mcp"
+url = "https://wellbore.ichunqian.top/mcp"
 http_headers = { Authorization = "Bearer 粘贴你的 API Key" }
 tool_timeout_sec = 180
 ```
@@ -154,7 +156,7 @@ macOS / Linux 上密钥的存放方式与上文「推荐（macOS / Linux）：�
 
 ```bash
 codex mcp add wellbore \
-  --url https://ccqwell.vip.cpolar.cn/mcp \
+  --url https://wellbore.ichunqian.top/mcp \
   --bearer-token-env-var WELLBORE_API_KEY
 ```
 
@@ -263,7 +265,7 @@ stratigraphy:
 
 - 不要把密钥放进 URL、提交到版本库或发给他人。
 - 密钥存放文件权限设为 `600`（`chmod 600 ~/.config/wellbore/api-key`），目录 `700`；不要用 `echo` 追加到会被同步的 dotfile 里。
-- 每个客户端建议使用独立密钥；停用设备时，到 <https://ccqwell.vip.cpolar.cn/keys> 单独撤销即可。
+- 每个客户端建议使用独立密钥；停用设备时，到 <https://wellbore.ichunqian.top/keys> 单独撤销即可。
 - 本仓库的 `.gitignore` 已默认忽略 `.mcp.json` 与 `.codex/config.toml`，避免误提交。
 
 ## 获取内测资格或提交反馈
